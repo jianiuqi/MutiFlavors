@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.versions.compileSdkVersion
+    defaultConfig {
+        applicationId "com.jnq.mutiflavors"
+        minSdkVersion rootProject.ext.versions.minSdkVersion
+        targetSdkVersion rootProject.ext.versions.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
+        flavorDimensions "versionCode"
+    }
+    signingConfigs {
+        release_sign {
+            keyAlias rootProject.ext.signingconfigs['keyAlias']
+            keyPassword rootProject.ext.signingconfigs['keyPassword']
+            storeFile file(rootProject.ext.signingconfigs['storeFile'])
+            storePassword rootProject.ext.signingconfigs['storePassword']
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release_sign
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release_sign
+            minifyEnabled false
+        }
+    }
+    /**多渠道打包*/
+    productFlavors {
+        heilongjiang {
+            applicationId "com.jnq.mutifalvors.hlj"
+        }
+        jiangxi {
+            applicationId "com.jnq.mutifalvors.jx"
+        }
+        yunnan {
+            applicationId "com.jnq.mutifalvors.yn"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}

@@ -1,0 +1,37 @@
+// all project config params
+def supportVersion = "26.0.0-beta1"
+
+ext {
+    versions = [
+            "buildToolsVersion": "26.0.2",
+            "compileSdkVersion": 26,
+            "minSdkVersion"    : 15,
+            "targetSdkVersion" : 26
+    ]
+    dependencies = [
+            "support-v4"   : "com.android.support:support-v4:${supportVersion}",
+            "appcompat-v7" : "com.android.support:appcompat-v7:${supportVersion}",
+            "recyclerview-v7" : "com.android.support:recyclerview-v7:${supportVersion}"
+    ]
+    repositories = [
+            "maven_jitpack" : "https://jitpack.io",
+            "maven_vcom"    : "http://192.168.164.87:8081/nexus/content/repositories/com.zzvcom.common",
+            "maven_snapshot" : "http://192.168.164.87:8081/nexus/content/repositories/snapshots"
+    ]
+    signingconfigs = [
+            "keyAlias"  : "vcomkey",
+            "keyPassword"  : "VCOMYJT",
+            "storeFile"  : './VCOMYJT',
+            "storePassword"  : "VCOMYJT",
+    ]
+    upload = [
+            "maven_release_url" : "http://192.168.164.87:8081/nexus/content/repositories/com.zzvcom.common/",
+            "maven_snapshot_url" : "http://192.168.164.87:8081/nexus/content/repositories/snapshots/",
+            "common_group_id" : "com.zzvcom.common",
+            "nexus_username" : "admin",
+            "nexus_password" : "admin123",
+            "packaging" : "aar",
+            "description" : "dependences lib",
+            "release" : "SNAPSHOT"
+    ]
+}
