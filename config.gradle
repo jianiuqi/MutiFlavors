@@ -13,25 +13,10 @@ ext {
             "appcompat-v7" : "com.android.support:appcompat-v7:${supportVersion}",
             "recyclerview-v7" : "com.android.support:recyclerview-v7:${supportVersion}"
     ]
-    repositories = [
-            "maven_jitpack" : "https://jitpack.io",
-            "maven_vcom"    : "http://192.168.164.87:8081/nexus/content/repositories/com.zzvcom.common",
-            "maven_snapshot" : "http://192.168.164.87:8081/nexus/content/repositories/snapshots"
-    ]
     signingconfigs = [
-            "keyAlias"  : "vcomkey",
-            "keyPassword"  : "VCOMYJT",
-            "storeFile"  : './VCOMYJT',
-            "storePassword"  : "VCOMYJT",
-    ]
-    upload = [
-            "maven_release_url" : "http://192.168.164.87:8081/nexus/content/repositories/com.zzvcom.common/",
-            "maven_snapshot_url" : "http://192.168.164.87:8081/nexus/content/repositories/snapshots/",
-            "common_group_id" : "com.zzvcom.common",
-            "nexus_username" : "admin",
-            "nexus_password" : "admin123",
-            "packaging" : "aar",
-            "description" : "dependences lib",
-            "release" : "SNAPSHOT"
+            "keyAlias"  : "muti_flavors.jks",
+            "keyPassword"  : "muti_123456",
+            "storeFile"  : './muti_flavors.jks',
+            "storePassword"  : "muti_123456"
     ]
 }
